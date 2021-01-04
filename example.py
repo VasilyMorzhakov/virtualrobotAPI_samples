@@ -68,6 +68,7 @@ if __name__=='__main__':
     print('\nLaunch a sequence')
     with open('data/1.json','r') as f:
         camera=json.load(f)
+        camera['depth_unit']=0.000250000011874
         print(camera)
 
     #send files
