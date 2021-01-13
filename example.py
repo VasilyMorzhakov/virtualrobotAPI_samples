@@ -74,7 +74,7 @@ if __name__=='__main__':
     #push_frames_cv2(cv2.imread('data/1.jpg'),cv2.imread('data/1.png',-1),camera)
 
     #request control frm the ML service
-    response=request_automated_control(timeout=2)
+    response=request_automated_control(timeout=5)
     print('automated control: '+str(response))
     #request control from an operator, if the previous command was failed
     response=request_manual_control(timeout=10) #timeout is set to 10s, just to make the script not so long
