@@ -77,8 +77,9 @@ if __name__=='__main__':
     response=request_automated_control(timeout=5)
     print('automated control: '+str(response))
     #request control from an operator, if the previous command was failed
-    response=request_manual_control(timeout=10) #timeout is set to 10s, just to make the script not so long
-    print('manual control: '+str(response))
+    if response[0] is None:
+        response=request_manual_control(timeout=10) #timeout is set to 10s, just to make the script not so long
+        print('manual control: '+str(response))
 
 
 
