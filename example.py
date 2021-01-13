@@ -13,7 +13,6 @@ def push_frames_encoded(buf_jpg,buf_png,camera):
         raise Exception('could not send files, status code '+str(r.status_code))
 
 def push_frames_cv2(rgb,depth,camera):
-    buf_json=bytes(json.dumps(camera))
     _,rgb_bytes=cv2.imencode('.jpg', rgb)
     _,png_bytes=cv2.imencode('.png',depth)
     push_frames_encoded(rgb_bytes,png_bytes,camera)
@@ -68,7 +67,6 @@ if __name__=='__main__':
     print('\nLaunch a sequence')
     with open('data/1.json','r') as f:
         camera=json.load(f)
-        camera['depth_unit']=0.000250000011874
         print(camera)
 
     #send files
