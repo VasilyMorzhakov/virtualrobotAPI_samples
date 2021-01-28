@@ -29,7 +29,7 @@ def request_automated_control(timeout=3):
         if r.status_code==200:
             return r.json(),'ok'
         else:
-            return r.text,'error '+str(r.status_code)
+            return None,r.text+' '+str(r.status_code)
 def request_manual_control(timeout=120):
     r=requests.post(url+'/commands/ask_for_operator')
     if r.status_code!=200:
@@ -42,7 +42,7 @@ def request_manual_control(timeout=120):
         if r.status_code==200:
             return r.json(),'ok'
         else:
-            return r.text,'error '+str(r.status_code)
+            return None,r.text+' '+str(r.status_code)
 
 if __name__=='__main__':
     url=os.environ['API_URL']
